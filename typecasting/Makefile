@@ -1,12 +1,6 @@
 .PHONY:clean all
-BIN=1 2 dynamic_cast
+BIN=1 2 dynamic_cast static_cast const_cast typeid_01 typeid_02
 all:$(BIN)
-#%.o:%.cpp
-#	g++ -Wall -g -c $< -o $@
-#1:1.o
-#	g++ -Wall -g $^ -o $@
-#2:2.o
-#	g++ -Wall -g $^ -o $@
 
 clean:
 	rm -f *.o $(BIN)
