@@ -15,8 +15,18 @@ double x = 10.3;
 int y;
 y = int (x);    // functional notation
 y = (int) x;    // c-like cast notation
-2.为了控制这些类型的类之间的转换，我们有四个具体的转换符：dynamic_cast，reinterpret_cast，static_cast和const_cast。它们的格式是遵循尖括号（<>）和紧随其后的新类型，表达式在括号之间进行转换。 这些表达式的传统类型转换等效于： 但每一个都有其特殊的特征：
+2.为了控制这些类型的类之间的转换，我们有四个具体的转换符：dynamic_cast，reinterpret_cast，static_cast和const_cast。它们的格式是遵循尖括号（<>）和紧随其后的新类型，表达式在括号之间进行转换。
 dynamic_cast <new_type> (expression)
 reinterpret_cast <new_type> (expression)
 static_cast <new_type> (expression)
 const_cast <new_type> (expression)
+2.这些表达式的传统类型转换等效于,但每一个都有其特殊的特征：
+(new_type) expression
+new_type (expression)
+
+四.dynamic_cast
+1.dynamic_cast只能用于指针和类（或带void*）的引用。其目的是确保类型转换的结果指向目标指针类型的有效完整对象。
+2.这自然包括指针上传（从指针到派生到指向基础的转换），其方式与隐式转换所允许的方式相同。
+3.但是，当且仅当指向的对象是目标类型的有效完整对象时，dynamic_cast也可以向下转换（从指针到基地转换为指向派生的）多态类（具有虚拟成员的类）
+4.当dynamic_cast不能转换指针时，因为它不是所需类的完整对象，它会返回一个空指针来指示失败。如果dynamic_cast用于转换为引用类型并且转换不可行，bad_cast则会抛出类型的异常。
+5.dynamic_cast也可以执行指针允许的其他隐式转换,在指针类型（甚至在不相关的类之间）之间转换空指针,并将任何类型的任何指针转换为void *指针
