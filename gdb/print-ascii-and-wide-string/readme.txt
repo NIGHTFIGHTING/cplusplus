@@ -41,6 +41,3 @@
 
 参见[gdb手册](https://sourceware.org/gdb/onlinedocs/gdb/Memory.html).
 
-## 贡献者
-
-nanxiao
