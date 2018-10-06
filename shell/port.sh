@@ -6,7 +6,7 @@ echo $port
 if [ "$port" == "open" ]
     then
         echo "$(date) httpd is ok"
-    else
-        service httpd start > /dev/null 2>&1
-        echo "$(date) httpd reboot!!"
+else
+    service httpd start > /dev/null 2>&1
+    echo "$(date) httpd reboot!!"
 fi
