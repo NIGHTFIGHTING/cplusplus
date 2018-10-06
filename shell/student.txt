@@ -1,0 +1,4 @@
+ID	Name	Php	Linuc	MySQL	Average
+1	Liming	82	95	86
+2	Sc	74	96	87
+3	Gao	99	83	93
