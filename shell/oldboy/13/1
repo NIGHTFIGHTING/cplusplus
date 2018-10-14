@@ -1,1 +1,0 @@
-        echo -e "${SUBJECT_CONTENT}"|tee ${LOG_FILE}
