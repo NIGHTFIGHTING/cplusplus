@@ -57,3 +57,7 @@ END{ for(i=0;i<count;++i) { print i"\t"name[i]}; for(i in passwd) { print i,pass
 echo -e
 #统计netstat -anp状态下为LISTEN和CONNECTED的连接数量
 netstat -anp | awk '$6~/LISTEN|CONNECTED/{ sum[$6]++ }END{ for(i in sum) { print i"\t"sum[i]}}' 
+#不同状态输出到不同文件
+netstat -anp | awk 'NR!=1{if($6 ~ /TIME|ESTABLISHED/) print > "1.txt";
+else if($6 ~ /LISTEN/) print > "2.txt";
+else print > "3.txt" }'
